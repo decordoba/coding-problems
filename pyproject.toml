@@ -1,0 +1,8 @@
+[project]
+name = "coding-problems"
+version = "0.1.0"
+description = "Problems solved while practicing for my coding interview"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+]
