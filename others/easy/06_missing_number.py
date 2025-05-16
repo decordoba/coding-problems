@@ -48,3 +48,9 @@ class Solution:
         n = len(nums)
         sum_n = int((n + 1) * n / 2)
         return sum_n - sum(nums)
+
+    def missingNumber_xor(self, nums: List[int]) -> int:
+        r = len(nums)
+        for i, n in enumerate(nums):
+            r ^= i ^ n
+        return r
