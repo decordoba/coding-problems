@@ -67,6 +67,23 @@ def decipher(ciphertext, knownWord):
     return "Invalid"
 
 
+def decipher2(ciphertext, knownWord):
+    # Another way of doing it
+    for i in range(26):
+        word = rotate_word(knownWord, i)
+        start = 0
+        while True:
+            idx = ciphertext.find(word, start)
+            if idx == -1:
+                break
+            before = (idx == 0 or not ciphertext[idx - 1].isalpha())
+            after = (idx + len(word) == len(ciphertext) or not ciphertext[idx + len(word)].isalpha())
+            if before and after:
+                return rotate_word(ciphertext, -i)
+            start = idx + 1
+        return "Invalid"
+
+
 if __name__ == "__main__":
     ciphertext = "Eqfkpi vguvu, qj agcj, ctg xgta hwp! Lwuv vta kv :)"
     for known_word in ["fun", "very", "try", "tryy", "ver", "potato", "it"]:
